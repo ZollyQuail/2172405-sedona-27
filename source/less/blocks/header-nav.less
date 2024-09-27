@@ -3,21 +3,13 @@
   width: 100%;
   display: flex;
   margin: 0;
-}
 
-@media (min-width: @tablet-width) {
-  .header-nav {
+  @media (min-width: @tablet-width) {
     min-width: 768px;
     justify-content: space-between;
   }
 
-  .header-nav__toggle {
-    opacity: 0;
-  }
-}
-
-@media (min-width: @desktop-width) {
-  .header-nav {
+  @media (min-width: @desktop-width) {
     min-width: 1200px;
   }
 }
@@ -33,6 +25,10 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  @media (min-width: @tablet-width) {
+    opacity: 0;
+  }
 }
 
 .header-nav--closed .header-nav__toggle::before {
@@ -43,7 +39,7 @@
   width: 23px;
   height: 4px;
   background-color: @light-blue;
-  box-shadow: 0 8px 0 0 @light-blue, 0 16px 0 0 @light-blue;
+  box-shadow: 0 9px 0 0 @light-blue, 0 18px 0 0 @light-blue;
 }
 
 .header-nav--opened .header-nav__toggle::after,
@@ -66,25 +62,14 @@
   opacity: 30%;
 }
 
-
 .header-nav--closed .header-nav__toggle:hover::before {
   background-color: fade(@light-blue, 70%);
-  box-shadow: 0 8px 0 0 fade(@light-blue, 70%), 0 16px 0 0 fade(@light-blue, 70%);
+  box-shadow: 0 9px 0 0 fade(@light-blue, 70%), 0 18px 0 0 fade(@light-blue, 70%);
 }
 
 .header-nav--closed .header-nav__toggle:active::before {
   background-color: fade(@light-blue, 50%);
-  box-shadow: 0 8px 0 0 fade(@light-blue, 50%), 0 16px 0 0 fade(@light-blue, 50%);
-}
-
-.header-nav--closed .nav-list__item {
-  display: none;
-}
-
-@media (min-width: @tablet-width) {
-  .header-nav--closed .nav-list__item {
-    display: block;
-  }
+  box-shadow: 0 9px 0 0 fade(@light-blue, 50%), 0 18px 0 0 fade(@light-blue, 50%);
 }
 
 .header-nav--nojs .header-nav__toggle::before {
@@ -95,8 +80,18 @@
   display: none;
 }
 
+.header-nav--closed .header-nav__wrapper {
+  display: none;
+
+  @media (min-width: @tablet-width) {
+    display: block;
+  }
+}
+
 .header-nav--nojs .header-nav__wrapper {
-  width: 100%;
+  position: absolute;
+  display: block;
+  z-index: 2;
 }
 
 .header-nav--opened .header-nav__wrapper {
@@ -111,8 +106,10 @@
   display: none;
 }
 
-@media (min-width: @tablet-width) {
-  .header-nav__wrapper {
+.header-nav__wrapper {
+  width: 100%;
+
+  @media (min-width: @tablet-width) {
     margin: 0;
     width: 100%;
   }

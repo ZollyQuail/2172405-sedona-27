@@ -7,8 +7,33 @@
   text-decoration: none;
 }
 
+.copyright__link:focus-visible {
+  outline: none;
+}
+
 .copyright__text {
   font-weight: 400;
   color: @black;
   margin-right: 12px;
+}
+
+a:hover .copyright__text {
+  color: @light-blue;
+}
+
+a:hover .copyright__icon {
+  fill: @light-blue;
+}
+
+a:focus .copyright__text {
+  color: #b3b3b3;
+}
+
+a:focus .copyright__icon {
+  fill: #b3b3b3;
+}
+
+.copyright__icon {
+  fill: @black;
+  min-width: 27px;
 }

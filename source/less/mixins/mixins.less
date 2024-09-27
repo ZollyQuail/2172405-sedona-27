@@ -14,14 +14,15 @@
   color: @white;
   background-color: @light-blue;
   border: none;
-  padding: 16px 0;
+  padding: 16px 16px;
 
   &:hover {
     background-color: @darker-blue;
   }
 
-  &:active {
+  &:focus {
     background-color: @dark-blue;
-    color: fade(@white, 30%);
+    color: rgba(255, 255, 255, 0.3);
+    outline: none;
   }
 }

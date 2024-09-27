@@ -1,31 +1,14 @@
 .form-intro {
   padding: 36px 20px 28px;
   position: relative;
-}
+  border-bottom: 1px solid #e5e5e5;
 
-.form-intro::after {
-  content: "";
-  position: absolute;
-  width: 320px;
-  height: 1px;
-  background-color: #e5e5e5;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (min-width: @tablet-width) {
-  .form-intro {
+  @media (min-width: @tablet-width) {
     padding: 64px 166px 102px 167px;
+    border-bottom: none;
   }
 
-  .form-intro::after {
-    display: none;
-  }
-}
-
-@media (min-width: @desktop-width) {
-  .form-intro {
+  @media (min-width: @desktop-width) {
     padding: 115px 382px 67px 382px;
   }
 }
@@ -36,12 +19,14 @@
   .text-size (18px, 26px);
   text-align: center;
   margin-bottom: 24px;
-}
 
-@media (min-width: @tablet-width) {
-  .form-intro__title {
+  @media (min-width: @tablet-width) {
     .text-size (30px, 26px);
     margin-bottom: 20px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 29px;
   }
 }
 
@@ -50,4 +35,12 @@
   padding: 0;
   .text-size (14px, 21px);
   text-align: center;
+
+  @media (min-width: @tablet-width) {
+    line-height: 24px;
+  }
+
+  @media (min-width: @desktop-width) {
+    line-height: 23px;
+  }
 }

@@ -1,30 +1,60 @@
-@media (min-width: @tablet-width) {
-  .feedback {
-    width: 100%;
+.feedback {
+  margin-top: 24px;
+  margin-bottom: 56px;
+
+  @media (min-width: @tablet-width) {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 48px;
   }
 }
 
 .feedback__title {
   margin: 0;
   padding: 0;
+  margin-bottom: 20px;
   text-align: center;
   .text-size(18px, 26px);
   font-weight: 700;
+
+  @media (min-width: @tablet-width) {
+    width: fit-content;
+    .text-size(21px, 26px);
+    background-color: @white;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 28px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
 }
 
-@media (min-width: @tablet-width) {
-  .feedback__title {
-    .text-size(21px, 26px);
+.feedback__title::before {
+  @media (min-width: @tablet-width) {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #dbdbdb;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 13px;
+    z-index: -1;
   }
 }
 
 .feedback__block {
   margin-top: 20px;
   margin-bottom: 56px;
-}
 
-@media (min-width: @tablet-width) {
-  .feedback__block {
+  @media (min-width: @tablet-width) {
     margin-bottom: 48px;
   }
 }
@@ -37,22 +67,31 @@
   font-family: inherit;
   border: none;
   resize: none;
-}
+  .text-size(18px, 26px);
+  font-weight: 700;
 
-@media (min-width: @tablet-width) {
-  .feedback__input {
-    width: 100%;
+  @media (min-width: @tablet-width) {
+    width: 648px;
     min-height: 160px;
   }
-}
 
-@media (min-width: @desktop-width) {
-  .feedback__input {
+  @media (min-width: @desktop-width) {
     width: 768px;
     min-height: 160px;
-    margin-left: 96px;
-    margin-right: 96px;
   }
+}
+
+.feedback__input:hover {
+  background-color: #e5e5e5;
+}
+
+// .feedback__input:focus {
+//   outline: none;
+// }
+
+.feedback__input:focus {
+  background-color: @white;
+  outline: 4px solid #e5e5e5;
 }
 
 ::-webkit-input-placeholder {

@@ -5,18 +5,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HTML Academy: Седона</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.min.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="favicon/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon/apple-icon-180x180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/ptsans.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/ptsansbold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 </head>
 
 <body class="page-body">
   <div class="page-container">
     <header class="page-header">
-      <a class="page-header__logo">
-        <div class="page-header__logo-pic">
-          <img src="img/vectors/logo.svg" width="185" height="96" alt="лого города Седона.">
-        </div>
+      <a class="page-header__logo" href="index.html">
+        <img class="page-header__logo-pic" src="img/vectors/logo.svg" width="185" height="96" alt="лого города Седона.">
       </a>
-      <nav class="header-nav header-nav--closed">
+      <nav class="header-nav header-nav--closed  header-nav--nojs">
 
         <div class="header-nav__wrapper">
           <ul class="header-nav__list nav-list">
@@ -53,45 +57,53 @@
           достопримечательностях</p>
       </section>
       <section class="form">
+        <h2 class="visually-hidden">Форма отзыва</h2>
         <form class="form-data" action="https://echo.htmlacademy.ru/courses" method="post">
           <fieldset class="form-data__fieldset fieldset">
-            <legend class="fieldset__title">Представьтесь:</legend>
+            <div class="fieldset__title">Представьтесь:</div>
             <ul class="fieldset__list">
               <li class="fieldset__item">
-                <label class="fieldset__label">Имя<sup>*</sup>:</label>
-                <input class="fieldset__input" type="text" name="name" value="Пётр">
+                <label class="fieldset__label" for="name">Имя<sup>*</sup>:</label>
+                <input class="fieldset__input" type="text" id="name" name="name" placeholder="Пётр">
               </li>
               <li class="fieldset__item">
-                <label class="fieldset__label">Фамилия<sup>*</sup>:</label>
-                <input class="fieldset__input" type="text" name="family-name" value="Пустота">
+                <label class="fieldset__label" for="family-name">Фамилия<sup>*</sup>:</label>
+                <input class="fieldset__input" type="text" id="family-name" name="family-name" placeholder="Пустота">
               </li>
               <li class="fieldset__item">
-                <label class="fieldset__label">Отчество:</label>
-                <input class="fieldset__input" type="text" name="patronymic-name" value="Викторович">
+                <label class="fieldset__label" for="patronymic-name">Отчество:</label>
+                <input class="fieldset__input" type="text" id="patronymic-name" name="patronymic-name"
+                  placeholder="Викторович">
               </li>
             </ul>
           </fieldset>
-          <fieldset class="form-data__fieldset fieldset--short">
+          <fieldset class="form-data__fieldset fieldset fieldset--short">
             <legend class="fieldset__title">Контактная информация:</legend>
             <ul class="fieldset__list">
               <li class="fieldset__item">
                 <label class="fieldset__label" for="phone">Контактный телефон<sup>*</sup>:</label>
                 <div class="fieldset__input-phone">
-                  <input class="fieldset__input fieldset__input-short" id="phone" type="text" name="phone"
+                  <input class="fieldset__input fieldset__input-short" id="phone" type="tel" name="phone"
                     placeholder="Введите телефон">
+                  <svg class="fieldset__input-icon" width="18" height="18" aria-label="Иконка телефона">
+                    <use href="img/sprite.svg#phone"></use>
+                  </svg>
                 </div>
               </li>
               <li class="fieldset__item">
                 <label class="fieldset__label" for="email">Электронная почта<sup>*</sup>:</label>
                 <div class="fieldset__input-email">
-                  <input class="fieldset__input fieldset__input-short" id="email" type="text" name="email"
+                  <input class="fieldset__input fieldset__input-short" id="email" type="email" name="email"
                     placeholder="Введите e-mail">
+                  <svg class="fieldset__input-icon" width="16" height="12" aria-label="Иконка почты">
+                    <use href="img/sprite.svg#mail"></use>
+                  </svg>
                 </div>
               </li>
             </ul>
           </fieldset>
           <fieldset class="form-data__fieldset fieldset fieldset--wide">
-            <legend class="fieldset__title fieldset__title--radio">Ваше общее впечатление:</legend>
+            <div class="fieldset__title fieldset__title--radio">Ваше общее впечатление:</div>
             <ul class="fieldset__list fieldset__list--wide">
               <li class="fieldset__item fieldset__item--radio">
                 <label class="fieldset__label radio">
@@ -114,7 +126,7 @@
             </ul>
           </fieldset>
           <fieldset class="form-data__fieldset fieldset fieldset--wide">
-            <legend class="fieldset__title fieldset__title--checkbox">Посещенные достопримечательности:</legend>
+            <h2 class="fieldset__title fieldset__title--checkbox">Посещенные<br>достопримечательности:</h2>
             <ul class="fieldset__list fieldset__list--wider">
               <li class="fieldset__item fieldset__item--checkbox">
                 <label class="fieldset__label checkbox">
@@ -142,77 +154,82 @@
               </li>
             </ul>
           </fieldset>
-          <div class="form-data__feedback feedback">
-            <legend class="feedback__title">Опишите свои эмоции:</legend>
-            <div class="feedback__block">
-              <label class="feedback__label">
-                <textarea class="feedback__input" name="emotions" rows="5"
-                  placeholder="Опишите подробно все свои восторги"></textarea>
-              </label>
-            </div>
-            <div class="form-data__footnote footnote">
-              <button class="footnote__button button" type="submit">Отправить отзыв</button>
-              <span class="footnote__message">* — обязательные поля</span>
-            </div>
+          <fieldset class="form-data__feedback feedback">
+            <h2 class="feedback__title">Опишите свои эмоции:</h2>
+            <label class="visually-hidden" for="feedback">Обратная связь</label>
+            <textarea class="feedback__input" name="feedback" rows="4" placeholder="Опишите подробно все свои восторги"
+              id="feedback"></textarea>
+          </fieldset>
+          <div class="form-data__footnote footnote">
+            <button class="footnote__button button" type="submit">Отправить отзыв</button>
+            <span class="footnote__message">* — обязательные поля</span>
           </div>
         </form>
       </section>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer page-footer--alternate">
       <div class="page-footer__wrapper">
-        <p class="page-footer__hashtag">#visitsedona</p>
+        <div class="hashtag">
+          <p class="page-footer__hashtag">#visitsedona</p>
+        </div>
         <div class="page-footer__social social">
           <ul class="social__list">
             <li class="social__item">
-              <a class="social__link" href="https://vk.com/htmlacademy">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#81B3D2" d="M0 0h48v48H0z" />
-                  <g clip-path="url(#a)">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M35.45 17.95c.17-.55 0-.95-.8-.95h-2.62c-.67 0-.98.35-1.14.73 0 0-1.34 3.2-3.23 5.27-.61.6-.89.8-1.22.8-.17 0-.42-.2-.42-.74v-5.11c0-.66-.18-.95-.74-.95h-4.13c-.42 0-.67.3-.67.6 0 .61.95.76 1.05 2.5v3.8c0 .84-.16.99-.5.99-.88 0-3.05-3.21-4.33-6.89-.25-.71-.5-1-1.17-1H12.9c-.75 0-.9.35-.9.73 0 .68.89 4.07 4.14 8.55 2.18 3.06 5.23 4.72 8.01 4.72 1.67 0 1.88-.37 1.88-1v-2.32c0-.73.16-.88.68-.88.4 0 1.06.2 2.62 1.67C31.11 30.22 31.4 31 32.41 31h2.62c.75 0 1.13-.37.91-1.1-.24-.72-1.09-1.77-2.21-3.02-.62-.7-1.53-1.47-1.81-1.86-.4-.49-.28-.7 0-1.14 0 0 3.2-4.43 3.53-5.93Z"
-                      fill="#fff" />
-                  </g>
-                  <defs>
-                    <clipPath id="a">
-                      <path fill="#fff" d="M12 12h24v24H12z" />
-                    </clipPath>
-                  </defs>
+              <a class="social__icon" href="https://vk.com/htmlacademy">
+                <svg class="social__link" width="24" height="14" aria-label="Страница HTML Academy в Вконтакте ">
+                  <use href="img/sprite.svg#vkontakte"></use>
                 </svg>
               </a>
             </li>
             <li class="social__item">
-              <a class="social__link" href="https://t.me/htmlacademy">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#81B3D2" d="M0 0h48v48H0z" />
-                  <path
-                    d="m34.44 16.62-3.17 14.95c-.24 1.05-.86 1.31-1.75.82l-4.83-3.56-2.33 2.24c-.25.26-.47.47-.97.47l.35-4.91 8.95-8.09c.39-.35-.09-.54-.6-.2l-11.07 6.97-4.76-1.49c-1.04-.32-1.05-1.03.22-1.53l18.62-7.18c.87-.32 1.62.2 1.34 1.51Z"
-                    fill="#fff" />
+              <a class="social__icon" href="https://t.me/htmlacademy">
+                <svg class="social__link" width="21" height="18" aria-label="Телеграм-канал HTML Academy">
+                  <use href="img/sprite.svg#telegram_1"></use>
                 </svg>
               </a>
             </li>
             <li class="social__item">
-              <a class="social__link" href="https://www.youtube.com/user/htmlacademyru">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#81B3D2" d="M0 0h48v48H0z" />
-                  <path
-                    d="M31.18 17H16.81c-1.5 0-2.81 1.3-2.81 2.8v8.3c0 1.6 1.3 2.9 2.81 2.9h14.37A2.8 2.8 0 0 0 34 28.2v-8.4c.1-1.5-1.2-2.8-2.8-2.8ZM21.03 27.4v-6.8l6.84 3.4-6.84 3.4Z"
-                    fill="#fff" />
-                </svg></a>
+              <a class="social__icon" href="https://www.youtube.com/user/htmlacademyru">
+                <svg class="social__link" width="20" height="14" aria-label="Канал HTML Academy на YouTube">
+                  <use href="img/sprite.svg#icon-youtube"></use>
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
         <div class="page-footer__copyright copyright">
-          <a class="copyright__link" href="https://htmlacademy.ru/intensive/adaptive">
+          <a class="copyright__link" href="https://htmlacademy.ru/intensive/adaptive" aria-label="Сайт HTML Academy">
             <b class="copyright__text">Разработано</b>
-            <svg width="27" height="35" viewBox="0 0 27 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M13.6 0h-.1L0 1.4v24.7l13.5 8 13.4-8V1.4L13.6 0ZM25 12.1 13.5 5.3v-.1h-.1l-.1-.1v.1L1.9 12.1v-9l11.5-1.2L25 3.1v9ZM13.4 6.8l11.5 6.7-4.5 2.6-7.1-4.2v1.4l5.9 3.5-.9.5-5-3v1.4l3.8 2.3-.8.5-3-1.8v1.4l1.9 1.1-1.8 1.1L2 13.6l11.4-6.8ZM1.9 15.1l11.4 6.8v1l-7.9-4.7v1.4l8 4.8v1.1l-8-4.7v1.4l8 4.8 8.1-4.9v-5.2l3.4-2v10l-11.5 6.9L1.9 25v-9.9Z"
-                fill="#000" />
+            <svg class="copyright__icon" width="27" height="35" aria-label="Логотип html-Academy">
+              <use href="img/sprite.svg#htmlacademy"></use>
             </svg>
           </a>
         </div>
       </div>
     </footer>
+    <div class="modal-container modal-block modal-container--close">
+      <div class="modal-block__warning modal">
+        <section class="modal__content">
+          <h2 class="modal__title">Что-то пошло не так!</h2>
+          <p class="modal__message">Проверьте поля, выделенные красным, скорее всего вы забыли их заполнить</p>
+        </section>
+        <button class="modal__button">ok</button>
+      </div>
+    </div>
+
+    <div class="modal-container modal-block modal-container--close">
+      <div class="modal-block__feedback modal">
+        <section class="modal__content">
+          <h2 class="modal__title">Ваш отзыв отправлен!</h2>
+          <p class="modal__message modal__message--feedback">Спасибо за ваше участие, ваш отзыв уже поступил к нам.
+            <br>В ближайшее время мы опубликуем его на сайте.
+          </p>
+        </section>
+        <div class="modal__footer">
+          <button class="modal__button modal__button--feedback">Закрыть окно</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <script src="script.js"></script>
+  <script src="js/script.min.js"></script>
 </body>
